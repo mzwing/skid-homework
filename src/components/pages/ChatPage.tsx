@@ -58,7 +58,6 @@ import {
   TooltipTrigger,
 } from "../ui/tooltip";
 import { ScrollArea } from "../ui/scroll-area";
-import { Separator } from "../ui/separator";
 import { Badge } from "../ui/badge";
 import {
   DropdownMenu,
@@ -604,23 +603,23 @@ export default function ChatPage() {
 
               {/* Desktop Expand */}
               {sidebarCollapsed && (
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="hidden md:flex"
-                      onClick={() => setSidebarCollapsed(false)}
-                    >
-                      <PanelLeftOpen className="h-4 w-4" />
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent>Open Sidebar</TooltipContent>
-                </Tooltip>
+                <>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="hidden md:flex"
+                        onClick={() => setSidebarCollapsed(false)}
+                      >
+                        <PanelLeftOpen className="h-4 w-4" />
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>Open Sidebar</TooltipContent>
+                  </Tooltip>
+                </>
               )}
             </div>
-
-            <Separator orientation="vertical" className="h-6" />
 
             <Popover
               open={sourcePopoverOpen}
