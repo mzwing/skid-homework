@@ -77,7 +77,6 @@ class MarkdownSectionParser {
     const tokens = lexer(explanationText);
     const steps: ExplanationStep[] = [];
     let currentStep: ExplanationStep | null = null;
-    let preamble = ""; // Content before the first step
 
     for (const token of tokens) {
       // Check for H4 Header (#### Step ...)
@@ -95,9 +94,6 @@ class MarkdownSectionParser {
       } else if (currentStep) {
         // Append to current step
         currentStep.content += token.raw;
-      } else {
-        // Content before any step header (Introductory text)
-        preamble += token.raw;
       }
     }
 
