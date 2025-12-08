@@ -1,5 +1,6 @@
 "use client";
 import { toast } from "sonner";
+import { v4 as uuidv4 } from "uuid";
 import { Info, StarIcon } from "lucide-react";
 import { useEffect, useMemo, useCallback, useRef, useState } from "react";
 import { useAiStore } from "@/store/ai-store";
@@ -143,7 +144,7 @@ export default function ScanPage() {
       for (const file of arr) {
         const base64Url = await fileToBase64(file);
         const item: FileItem = {
-          id: crypto.randomUUID(),
+          id: uuidv4(),
           file,
           mimeType: file.type,
           url: base64Url,

@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import Dexie, { type Table } from "dexie";
 
 export type ChatRole = "user" | "assistant" | "system";
@@ -37,8 +38,5 @@ class ChatDatabase extends Dexie {
 export const chatDb = new ChatDatabase();
 
 export const createId = () => {
-  if (typeof crypto !== "undefined" && crypto.randomUUID) {
-    return crypto.randomUUID();
-  }
-  return `id-${Math.random().toString(36).slice(2, 10)}`;
+  return uuidv4();
 };
