@@ -27,7 +27,8 @@ export default function Explanation({
         <div className="mb-1 text-sm font-medium text-slate-300">
           {t("explanation")}
         </div>
-        <div className="rounded-lg bg-slate-900/40 p-3 text-sm leading-relaxed">
+
+        <div className="rounded-lg bg-slate-900/60 p-3">
           <MemoizedMarkdown source={content ?? "<Empty Explanation>"} />
         </div>
       </div>
